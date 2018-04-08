@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # React Starter Kit
 
 To install the dependencies:
@@ -30,6 +30,6 @@ To run tests in Node:
 ```js
 npm test
 ```
-=======
 # weatherly
->>>>>>> 0c11b57611be4cae74d6384fa260d5f0b3db35b4
+
+<!-- Should include a wireframe of our App. -->
