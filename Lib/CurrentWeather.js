@@ -4,10 +4,12 @@ import '../Styles/CurrentWeather.css';
 
 
 const CurrentWeather = (props)=>{
-  const {weather, } = props;
+  const {location} = props;
   return (
-      <div>
-        <h2>{weather}</h2>
+      <div className ="current-weather">
+        <h2>{location}</h2>
+        <p> 65˚</p>
+        <p> high / low </p>
       </div>
     );  
 };
