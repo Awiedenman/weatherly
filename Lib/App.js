@@ -4,6 +4,7 @@ import '../Styles/App.css';
 import data from '../Data/mock-data.js';
 import CurrentWeather from './CurrentWeather.js';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -13,7 +14,8 @@ class App extends Component {
   render () {
     console.log('poop')
     return (
-            <div>    
+            <div>
+                   
                 <h1> i love the the weather!</h1>
                 <CurrentWeather 
                     weather={data.current_observation.display_location.full}
