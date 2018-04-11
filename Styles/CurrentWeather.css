@@ -1,4 +1,4 @@
-.current-weather {
+.curr_weather {
     width: 35%;
     /* border: 2px solid #000000; */
     background-color: rgba(57, 60, 65, 0.6);
@@ -13,34 +13,41 @@ h2 {
     font-size: 30px;
 }
 
-.current-temp {
+.curr_temp {
     position: absolute;
-    bottom: 170px;
+    bottom: 128px;
     font-size: 160px;
-    left: 35px;
+    left: 18px;
 }
 
-.current_high-low {
+.curr_location {
     position: absolute;
-    bottom: 40px;
+    top: 30px;
+    left: 30px;
+    font-size: 30px;
+}
+.curr_high-low {
+    position: absolute;
+    bottom: 70px;
+    left: 45px;
     font-size: 30px;
 }
 
-.current_date {
+.curr_date {
     position: absolute;
-    top: 70px;
-    right: 45px;
-    font-size: 30px;
+    top: 56px;
+    right: 19px;
+    font-size: 25px;
 }
 
-.current_weather-icon {
+.curr_weather-icon {
     position: absolute;
     top: 170px;
     right: 30px;
     font-size: 50px;
 }
 
-.current_weather-description {
+.curr_weather-descrip {
     position: absolute;
     bottom: 80px;
     right: 67px;
