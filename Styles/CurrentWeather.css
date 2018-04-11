@@ -2,7 +2,7 @@
     width: 35%;
     /* border: 2px solid #000000; */
     background-color: rgba(57, 60, 65, 0.6);
-    /* position: absolute; */
+    position: relative;
     /* top: 20px; */
     padding: 52px 48px;
     margin: 0 20px;
@@ -13,6 +13,36 @@ h2 {
     font-size: 30px;
 }
 
-p {
-    font-size: 95px;
+.current-temp {
+    position: absolute;
+    bottom: 170px;
+    font-size: 160px;
+    left: 35px;
+}
+
+.current_high-low {
+    position: absolute;
+    bottom: 40px;
+    font-size: 30px;
+}
+
+.current_date {
+    position: absolute;
+    top: 70px;
+    right: 45px;
+    font-size: 30px;
+}
+
+.current_weather-icon {
+    position: absolute;
+    top: 170px;
+    right: 30px;
+    font-size: 50px;
+}
+
+.current_weather-description {
+    position: absolute;
+    bottom: 80px;
+    right: 67px;
+    font-size: 30px;
 }
