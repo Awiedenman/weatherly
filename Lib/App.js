@@ -16,8 +16,12 @@ class App extends Component {
       <div className="main-page"> 
         <div className="top-section">
           <CurrentWeather
-            location={data.current_observation.display_location.full}
+            currLocation={data.current_observation.display_location.full}
             currTemp
+            currHighLow
+            currDate
+            currWeatherIcon
+            currWeatherDescrip
           />  
         </div>
         <div className="bottom-section">

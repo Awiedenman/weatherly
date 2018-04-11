@@ -1,18 +1,18 @@
 import React from 'react';
 import '../Styles/CurrentWeather.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 const CurrentWeather = (props)=>{
-  const {location} = props;
+const { currLocation, currTemp, currHighLow, currDate, currWeatherDescrip } = props;
   return (
-      <div className="current-weather">
-        <h2 className="location">{location}</h2>
-        <p className="current-temp">45˚</p>
-        <p className="current_high-low"> high / low</p>
-      <p className="current_date">Arpil 10˚</p>
-        <p className="current_weather-icon">picture</p>
-        <p className="current_weather-description">Cloudy</p>
+      <div className="curr_weather">
+        <h2 className="curr_location">{currLocation}</h2>
+        <p className="curr_temp">45˚</p>
+        <p className="curr_high-low"> high / low</p>
+        <p className="curr_date">Arpil 10, 2018</p>
+        <p className="curr_weather-icon">picture</p>
+        <p className="curr_weather-descrip">Cloudy</p>
       </div>
     );  
 };
