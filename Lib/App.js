@@ -3,43 +3,53 @@ import { Component } from 'react';
 import '../Styles/App.css';
 import data from '../Data/mock-data';
 import CurrentWeather from './CurrentWeather';
-import { dateCleaner } from './Cleaner';
+import { currWeatherCleaner } from './Cleaner';
 
 class App extends Component {
   constructor() {
-    super(); 
+    super();
     this.cleanData = this.cleanData.bind(this);
     this.state = {
-      currDate : '',
+      currDate: '',
+      currTemp: '',
+      currLocation: '',
+      currExpectHigh: '',
+      currExpectLow: '',
+      currWeatherDescrip: '',
+      currWeatherIcon: '',
     }
   }
 
   cleanData() {
-    const currDate = dateCleaner(data)
-    this.setState( {currDate} ) // currDate : currDate
+    const newState = currWeatherCleaner(data);
+    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon } = newState;
+
+    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon }) // currDate : currDate
+
   }
 
   componentDidMount() {
     this.cleanData();//run our JSON.data throuhg our cleaner in this functionality
   }
 
-  render () {
+  render() {
     return (
-      <div className="main-page"> 
+      <div className="main-page">
         <div className="top-section">
           <CurrentWeather
-            currLocation={data.current_observation.display_location.full}
-            currTemp={data.current_observation.temp_f}
-            currHighLow
+            currLocation={this.state.currLocation}
+            currTemp={this.state.currTemp}
+            currExpectHigh={this.state.currExpectHigh}
+            currExpectLow={this.state.currExpectLow}
             currDate={this.state.currDate}
-            currWeatherIcon
-            currWeatherDescrip={data.current_observation.weather}
-          />  
+            currWeatherIcon={this.state.currDisplayIcon}
+            currWeatherDescrip={this.state.currWeatherDescrip}
+          />
         </div>
         <div className="bottom-section">
-        </div>      
+        </div>
       </div>
-        );
+    );
   }
 }
 
