@@ -8,11 +8,11 @@ const { currLocation, currTemp, currHighLow, currDate, currWeatherDescrip } = pr
   return (
       <div className="curr_weather">
         <h2 className="curr_location">{currLocation}</h2>
-        <p className="curr_temp">45˚</p>
+        <p className="curr_temp">{currTemp}</p>
         <p className="curr_high-low"> high / low</p>
-        <p className="curr_date">Arpil 10, 2018</p>
+        <p className="curr_date">{currDate}</p>
         <p className="curr_weather-icon">picture</p>
-        <p className="curr_weather-descrip">Cloudy</p>
+        <p className="curr_weather-descrip">{currWeatherDescrip}</p>
       </div>
     );  
 };

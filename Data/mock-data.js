@@ -51,7 +51,7 @@ const data = {
         local_tz_offset: '-0500',
         weather: 'Mostly Cloudy',
         temperature_string: '46.0 F (7.8 C)',
-        temp_f: 46.0,
+        temp_f: 48.0,
         temp_c: 7.8,
         relative_humidity: '65%',
         wind_string: 'From the NE at 1.0 MPH Gusting to 8.0 MPH',
