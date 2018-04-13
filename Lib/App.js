@@ -11,26 +11,29 @@ class App extends Component {
     super();
     this.cleanData = this.cleanData.bind(this);
     this.state = {
-      currDate: '',
-      currTemp: '',
-      currLocation: '',
-      currExpectHigh: '',
-      currExpectLow: '',
-      currWeatherDescrip: '',
-      currWeatherIcon: '',
-      happy: '',
-    }
+      // currDate: '',
+      // currTemp: '',
+      // currLocation: '',
+      // currExpectHigh: '',
+      // currExpectLow: '',
+      // currWeatherDescrip: '',
+      // currWeatherIcon: '',
+      hourArray: [],
+    };
   }
 
   cleanData() {
     const newState = currWeatherCleaner(data);
-    const shitSeven = sevenHrCleaner(data);
-    const nextState = Object.assign({}, newState, shitSeven);
-    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, happy } = nextState;
+    const sevenHrClean = sevenHrCleaner(data);
+    // this.setState({hourArray : sevenHrClean})
+    // console.log(sevenHrClean)
 
-    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, happy })
+    const nextState = Object.assign({}, newState, { hourArray: sevenHrClean } );
+    // this.setState({hourArray : sevenHourClean})
+    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, hourArray} = nextState;
 
-
+    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, hourArray })
+console.log(this.state);
   }
 
   componentDidMount() {
@@ -55,7 +58,7 @@ class App extends Component {
           {/* <Button />
           <Button /> */}
           <SevenHr
-            happy={this.state.happy}
+            hourArray={this.state.hourArray}
           />
         </div>  
       </div>
