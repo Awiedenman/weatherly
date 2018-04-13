@@ -3,7 +3,8 @@ import { Component } from 'react';
 import '../Styles/App.css';
 import data from '../Data/mock-data';
 import CurrentWeather from './CurrentWeather';
-import { currWeatherCleaner } from './Cleaner';
+import SevenHr from './sevenHr';
+import { currWeatherCleaner, sevenHrCleaner } from './Cleaner';
 
 class App extends Component {
   constructor() {
@@ -17,14 +18,18 @@ class App extends Component {
       currExpectLow: '',
       currWeatherDescrip: '',
       currWeatherIcon: '',
+      happy: '',
     }
   }
 
   cleanData() {
     const newState = currWeatherCleaner(data);
-    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon } = newState;
+    const shitSeven = sevenHrCleaner(data);
+    const nextState = Object.assign({}, newState, shitSeven);
+    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, happy } = nextState;
 
-    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon }) // currDate : currDate
+    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, happy })
+
 
   }
 
@@ -47,7 +52,12 @@ class App extends Component {
           />
         </div>
         <div className="bottom-section">
-        </div>
+          {/* <Button />
+          <Button /> */}
+          <SevenHr
+            happy={this.state.happy}
+          />
+        </div>  
       </div>
     );
   }

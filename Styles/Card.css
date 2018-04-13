@@ -1,0 +1,11 @@
+.card_outline {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #000000;
+  background-color:#ffffff;
+  position: relative;
+  top: 20px;
+  margin: 0 20px;
+  color: #000000;
+}
+
