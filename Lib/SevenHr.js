@@ -2,17 +2,28 @@ import React from 'react';
 import '../Styles/SevenHr.css';
 import Card from './Card';
 
-
 const SevenHr = (props) => {
-  const { happy } = props;
+  const { hourArray } = props;
+  // console.log(props)
+  // const { hour, currentTemp, currentCondition } = sevenHrArray;
 
-  return(
+  return (
     <div>
-      <Card happy={ happy }
-      />
+       {
+          hourArray.map((hourObj) => {
+            return (
+              <Card 
+                key = {hourObj.hour}
+                hour= { hourObj.hour }
+                hourTemp={ hourObj.hourTemp }
+                hourCondition={ hourObj.hourCondition }
+              />
+            );
+          })
+        }
     </div>
-  )
+  );
+};
 
-}
 
-export default SevenHr
+export default SevenHr;
