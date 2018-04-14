@@ -9,54 +9,44 @@ import { currWeatherCleaner, sevenHrCleaner } from './Cleaner';
 class App extends Component {
   constructor() {
     super();
-    this.cleanData = this.cleanData.bind(this);
     this.state = {
-      // currDate: '',
-      // currTemp: '',
-      // currLocation: '',
-      // currExpectHigh: '',
-      // currExpectLow: '',
-      // currWeatherDescrip: '',
-      // currWeatherIcon: '',
+      currWeatherObj: {},
       hourArray: [],
     };
-  }
 
+    this.cleanData = this.cleanData.bind(this);
+
+  }
+  
   cleanData() {
-    const newState = currWeatherCleaner(data);
-    const sevenHrClean = sevenHrCleaner(data);
-    // this.setState({hourArray : sevenHrClean})
-    // console.log(sevenHrClean)
+    const currWeatherObj = currWeatherCleaner(data);
+    const hourArray = sevenHrCleaner(data);
+    // const nextState = Object.assign({}, { currWeatherObj: currWeatherClean }, { hourArray: sevenHrClean } );
+    // const { currWeatherObj, hourArray } = nextState;
 
-    const nextState = Object.assign({}, newState, { hourArray: sevenHrClean } );
-    // this.setState({hourArray : sevenHourClean})
-    const { currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, hourArray} = nextState;
-
-    this.setState({ currDate, currTemp, currExpectHigh, currExpectLow, currLocation, currWeatherDescrip, currDisplayIcon, hourArray })
-console.log(this.state);
+    this.setState({ currWeatherObj, hourArray  })
   }
-
+  
   componentDidMount() {
-    this.cleanData();//run our JSON.data throuhg our cleaner in this functionality
+    this.cleanData();//run our JSON.data throuhg our cleaner in this functionality   
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="main-page">
         <div className="top-section">
           <CurrentWeather
-            currLocation={this.state.currLocation}
-            currTemp={this.state.currTemp}
-            currExpectHigh={this.state.currExpectHigh}
-            currExpectLow={this.state.currExpectLow}
-            currDate={this.state.currDate}
-            currWeatherIcon={this.state.currDisplayIcon}
-            currWeatherDescrip={this.state.currWeatherDescrip}
+            currWeatherObj={ this.state.currWeatherObj }
+            // currTemp={this.state.currTemp}
+            // currExpectHigh={this.state.currExpectHigh}
+            // currExpectLow={this.state.currExpectLow}
+            // currDate={this.state.currDate}
+            // currWeatherIcon={this.state.currWeatherIcon}
+            // currWeatherDescrip={this.state.currWeatherDescrip}
           />
         </div>
         <div className="bottom-section">
-          {/* <Button />
-          <Button /> */}
           <SevenHr
             hourArray={this.state.hourArray}
           />

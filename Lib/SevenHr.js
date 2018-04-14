@@ -8,12 +8,12 @@ const SevenHr = (props) => {
   // const { hour, currentTemp, currentCondition } = sevenHrArray;
 
   return (
-    <div>
+    <div className= "sevenHrCardContainer">
        {
           hourArray.map((hourObj) => {
             return (
               <Card 
-                key = {hourObj.hour}
+                key = { hourObj.hour }
                 hour= { hourObj.hour }
                 hourTemp={ hourObj.hourTemp }
                 hourCondition={ hourObj.hourCondition }
