@@ -1,0 +1,4 @@
+.sevenHrCardContainer {
+    display: flex;
+    flex-direction: row;
+}

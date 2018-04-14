@@ -13,13 +13,14 @@ import CurrentWeather from './CurrentWeather.js';//to check the 'hookup' - shoul
 
 //6. everything else is a ui(stateless and/orfunctional) - render correctly? you look right? ex: the card is rendered? that’s the ui test. button clicked to remove/change card? did you call with the correct arguments
 
-// describe('App tests', () => {
-//     describe('default state tests', () => {
-//         it('App should have a default state of ''key'' and it should be 'default value'), ()=>{
-//       const renderedApp = shallow(<App />);
-//         const expect = 'default value';
+describe('App tests', () => {
+    describe('default state tests', () => {
+        it.only('App should have a default state of key and it should be default value'), ()=>{
+      const renderedApp = shallow(<App />);
+        const expect = 'default value';
 
-//         expect(renederedApp.state('key')).toEqual(expect);
-//     }
-//   })
-// })
+        expect(renederedApp.state('key')).toEqual(expect);
+    }
+
+  })
+})
