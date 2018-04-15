@@ -31,12 +31,13 @@
 }
 
 .toggle {
-    width: 220px;
-    height: 220px;
+    width: 100px;
+    height: 100px;
     border: 2px solid #000000;
-    background-color:#ffffff;
+    background-color:#848A83;
     position: relative;
     top: 20px;
     margin: 0 20px;
-    color: #000000;
+    color: #FEFFFA;
+    border-radius: 25px
   }
