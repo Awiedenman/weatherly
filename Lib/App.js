@@ -13,11 +13,12 @@ class App extends Component {
     this.state = {
       currWeatherObj: {},
       hourArray: [],
-      dayArray: []
+      dayArray: [],
+      toggleForecast: true,
     };
 
     this.cleanData = this.cleanData.bind(this);
-
+    this.toggleForecast = this.toggleForecast.bind(this);
   }
 
   cleanData() {
@@ -28,6 +29,12 @@ class App extends Component {
     // const { currWeatherObj, hourArray } = nextState;
 
     this.setState({ currWeatherObj, hourArray, dayArray })
+  }
+
+  toggleForecast(event) {
+    this.setState({
+      toggleForecast: !this.state.toggleForecast
+    })
   }
 
   componentDidMount() {
@@ -50,12 +57,12 @@ class App extends Component {
           />
         </div>
         <div className="bottom-section">
-          <SevenHr
-            hourArray={this.state.hourArray}
-          />
-          <TenDay
-            dayArray={this.state.dayArray}
-          />
+          <button onClick={this.toggleForecast} type="button" >Show a Different Forecast</button>
+          {
+            this.state.toggleForecast ?
+            <SevenHr hourArray={this.state.hourArray}/> :
+            <TenDay dayArray={this.state.dayArray}/>
+          }     
         </div>
       </div>
     );
