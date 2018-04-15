@@ -1,0 +1,4 @@
+.tenDayContainer {
+  display: flex;
+  flex-direction: row;
+}

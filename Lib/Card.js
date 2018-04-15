@@ -18,7 +18,7 @@ const Card = (props) => {
 
   } else {
     return (
-        <div>
+        <div className="card_outline">
             <h3>{ props.day  }</h3>
             <h3>{ props.month }</h3>
             <h3>{ props.high }</h3>

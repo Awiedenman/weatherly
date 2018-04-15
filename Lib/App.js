@@ -57,7 +57,7 @@ class App extends Component {
           />
         </div>
         <div className="bottom-section">
-          <button onClick={this.toggleForecast} type="button" >Show a Different Forecast</button>
+          <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - FORECAST</button>
           {
             this.state.toggleForecast ?
             <SevenHr hourArray={this.state.hourArray}/> :

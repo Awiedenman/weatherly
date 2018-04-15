@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../Styles/TenDay.css';
+import '../Styles/TenDay.css';
 import Card from './Card';
  
 const TenDay = (props) => {

@@ -29,3 +29,14 @@
     border: 1px solid #000000;
     background-color: #ffffff;
 }
+
+.toggle {
+    width: 220px;
+    height: 220px;
+    border: 2px solid #000000;
+    background-color:#ffffff;
+    position: relative;
+    top: 20px;
+    margin: 0 20px;
+    color: #000000;
+  }
