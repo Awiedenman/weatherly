@@ -13,13 +13,13 @@ class App extends Component {
     this.state = {
       currWeatherObj: {},
       hourArray: [],
-      dayArray: [],
+      dayArray: []
     };
 
     this.cleanData = this.cleanData.bind(this);
 
   }
-  
+
   cleanData() {
     const currWeatherObj = currWeatherCleaner(data);
     const hourArray = sevenHrCleaner(data);
@@ -27,9 +27,9 @@ class App extends Component {
     // const nextState = Object.assign({}, { currWeatherObj: currWeatherClean }, { hourArray: sevenHrClean } );
     // const { currWeatherObj, hourArray } = nextState;
 
-    this.setState({ currWeatherObj, hourArray, dayArray  })
+    this.setState({ currWeatherObj, hourArray, dayArray })
   }
-  
+
   componentDidMount() {
     this.cleanData();//run our JSON.data throuhg our cleaner in this functionality   
   }
@@ -40,13 +40,13 @@ class App extends Component {
       <div className="main-page">
         <div className="top-section">
           <CurrentWeather
-            currWeatherObj={ this.state.currWeatherObj }
-            // currTemp={this.state.currTemp}
-            // currExpectHigh={this.state.currExpectHigh}
-            // currExpectLow={this.state.currExpectLow}
-            // currDate={this.state.currDate}
-            // currWeatherIcon={this.state.currWeatherIcon}
-            // currWeatherDescrip={this.state.currWeatherDescrip}
+            currWeatherObj={this.state.currWeatherObj}
+          // currTemp={this.state.currTemp}
+          // currExpectHigh={this.state.currExpectHigh}
+          // currExpectLow={this.state.currExpectLow}
+          // currDate={this.state.currDate}
+          // currWeatherIcon={this.state.currWeatherIcon}
+          // currWeatherDescrip={this.state.currWeatherDescrip}
           />
         </div>
         <div className="bottom-section">
@@ -56,7 +56,7 @@ class App extends Component {
           <TenDay
             dayArray={this.state.dayArray}
           />
-        </div>  
+        </div>
       </div>
     );
   }
