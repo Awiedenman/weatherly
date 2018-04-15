@@ -4,7 +4,8 @@ import '../Styles/App.css';
 import data from '../Data/mock-data';
 import CurrentWeather from './CurrentWeather';
 import SevenHr from './SevenHr';
-import TenDay from './TenDay'
+import TenDay from './TenDay';
+import Search from './Search';
 import { currWeatherCleaner, sevenHrCleaner, tenDayCleaner } from './Cleaner';
 
 class App extends Component {
@@ -46,15 +47,8 @@ class App extends Component {
     return (
       <div className="main-page">
         <div className="top-section">
-          <CurrentWeather
-            currWeatherObj={this.state.currWeatherObj}
-          // currTemp={this.state.currTemp}
-          // currExpectHigh={this.state.currExpectHigh}
-          // currExpectLow={this.state.currExpectLow}
-          // currDate={this.state.currDate}
-          // currWeatherIcon={this.state.currWeatherIcon}
-          // currWeatherDescrip={this.state.currWeatherDescrip}
-          />
+          <CurrentWeather currWeatherObj={this.state.currWeatherObj} />
+          <Search />
         </div>
         <div className="bottom-section">
           <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - FORECAST</button>
