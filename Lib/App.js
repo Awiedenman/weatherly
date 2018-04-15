@@ -6,6 +6,8 @@ import CurrentWeather from './CurrentWeather';
 import SevenHr from './SevenHr';
 import TenDay from './TenDay';
 import Search from './Search';
+import apiKey from './apiKey'
+import apiCall from './api'
 import { currWeatherCleaner, sevenHrCleaner, tenDayCleaner } from './Cleaner';
 
 class App extends Component {
@@ -22,10 +24,20 @@ class App extends Component {
     this.toggleForecast = this.toggleForecast.bind(this);
   }
 
+  // apiCall() {
+  //   fetch(`http://api.wunderground.com/api/${apiKey}/conditions/geolookup/hourly/forecast10day/q/CO/Denver.json`)
+  //     .then(reponse => reponse.json())
+  //     .then(data => {
+  //      return this.cleanData(data)
+  //     })
+  //     .catch(error => console.log('error', error))
+
+  // }
+
   cleanData() {
     const currWeatherObj = currWeatherCleaner(data);
     const hourArray = sevenHrCleaner(data);
-    const dayArray = tenDayCleaner(data)
+    const dayArray = tenDayCleaner(data);
     // const nextState = Object.assign({}, { currWeatherObj: currWeatherClean }, { hourArray: sevenHrClean } );
     // const { currWeatherObj, hourArray } = nextState;
 
@@ -38,9 +50,19 @@ class App extends Component {
     })
   }
 
+  // componentDidMount() {
+  //   fetch(this.apiCall()).then((response) => {
+
+
+
+  //     response.json()).then((data)=> {
+  //       // setState(data)
+  //       this.cleanData(data);//run our JSON.data throuhg our cleaner in this functionality   
+  //     })
   componentDidMount() {
-    this.cleanData();//run our JSON.data throuhg our cleaner in this functionality   
+   const api = apiCall();
   }
+  
 
   render() {
     console.log(this.state)
@@ -51,7 +73,7 @@ class App extends Component {
           <Search />
         </div>
         <div className="bottom-section">
-          <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - FORECAST</button>
+          <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - 7hr / 10day</button>
           {
             this.state.toggleForecast ?
             <SevenHr hourArray={this.state.hourArray}/> :

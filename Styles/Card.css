@@ -1,11 +1,24 @@
-.card_outline {
-  width: 220px;
+.card_outline-7hr {
+  width: 140px;
   height: 220px;
   border: 2px solid #000000;
   background-color:#213B0D;
   position: relative;
   top: 20px;
   margin: 0 20px;
+  color: #FEFFFA;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card_outline-10day {
+  width: 110px;
+  height: 220px;
+  border: 2px solid #000000;
+  background-color: #213B0D;
+  position: relative;
+  top: 20px;
+  margin: 0 8px;
   color: #FEFFFA;
   text-align: center;
   padding-top: 10px;

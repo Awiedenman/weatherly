@@ -16,6 +16,7 @@ const SevenHr = (props) => {
                 key = { hourObj.hour }
                 hour= { hourObj.hour }
                 hourTemp={ hourObj.hourTemp }
+                hourIcon={ hourObj.hourIcon }
                 hourCondition={ hourObj.hourCondition }
               />
             );
