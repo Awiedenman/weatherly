@@ -2,16 +2,35 @@ import React from 'react';
 import '../Styles/Card.css';
 
 const Card = (props) => {
-  const { hour, hourTemp, hourCondition  } = props
+  // const { hour, hourTemp, hourCondition  } = props
 
-  return(
-    <div className = "card_outline">
+  // if (props.hourArray) {
+  return (
 
-      <h3>{ hour + ":00" }</h3>
-      <h3>{ hourTemp }</h3>
-      <h3>{ hourCondition }</h3>
-    </div>
-  )
+      <div className="card_outline">
+
+        <h3>{props.hour + ":00"}</h3>
+        <h3>{props.hourTemp}</h3>
+        <h3>{props.hourCondition}</h3>
+      
+   
+  
+      
+        
+
+         
+
+            <h3>{ props.day  }</h3>
+            <h3>{ props.month }</h3>
+            <h3>{ props.high }</h3>
+            <h3>{ props.low }</h3>
+            <h3>{ props.conditions }</h3>
+            <h3>{ props.icon }</h3>
+        </div>
+      
+    )
 }
+
+
 
 export default Card;

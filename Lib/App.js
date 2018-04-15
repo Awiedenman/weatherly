@@ -3,8 +3,9 @@ import { Component } from 'react';
 import '../Styles/App.css';
 import data from '../Data/mock-data';
 import CurrentWeather from './CurrentWeather';
-import SevenHr from './sevenHr';
-import { currWeatherCleaner, sevenHrCleaner } from './Cleaner';
+import SevenHr from './SevenHr';
+import TenDay from './TenDay'
+import { currWeatherCleaner, sevenHrCleaner, tenDayCleaner } from './Cleaner';
 
 class App extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class App extends Component {
     this.state = {
       currWeatherObj: {},
       hourArray: [],
+      dayArray: [],
     };
 
     this.cleanData = this.cleanData.bind(this);
@@ -21,10 +23,11 @@ class App extends Component {
   cleanData() {
     const currWeatherObj = currWeatherCleaner(data);
     const hourArray = sevenHrCleaner(data);
+    const dayArray = tenDayCleaner(data)
     // const nextState = Object.assign({}, { currWeatherObj: currWeatherClean }, { hourArray: sevenHrClean } );
     // const { currWeatherObj, hourArray } = nextState;
 
-    this.setState({ currWeatherObj, hourArray  })
+    this.setState({ currWeatherObj, hourArray, dayArray  })
   }
   
   componentDidMount() {
@@ -49,6 +52,9 @@ class App extends Component {
         <div className="bottom-section">
           <SevenHr
             hourArray={this.state.hourArray}
+          />
+          <TenDay
+            dayArray={this.state.dayArray}
           />
         </div>  
       </div>
