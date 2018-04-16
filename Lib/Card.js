@@ -9,22 +9,22 @@ const Card = (props) => {
   if(props.hour) {
     return (
 
-        <div className="card_outline">
-            <h3>TIME: {props.hour + ":00"}</h3>
-            <h3>TEMP: {props.hourTemp}</h3>
-            <h3>{props.hourCondition}</h3>
+        <div className="card_outline-7hr">
+            <h3>TIME: { props.hour + ":00" }</h3>
+            <h3>TEMP: { props.hourTemp } ˚F</h3>
+            <img src={ props.hourIcon }/>
+            <h3>{ props.hourCondition }</h3>
         </div>
     )  
 
   } else {
     return (
-        <div className="card_outline">
-            <h3>{ props.day  }th day</h3>
-            <h3>of the { props.month }th month</h3>
-            <h3>HIGH:  { props.high }</h3>
-            <h3>LOW:  { props.low }</h3>
+        <div className="card_outline-10day">
+            <h3>{props.month}/{props.day}</h3>
+            <h3>HIGH:  { props.high } ˚F</h3>
+            <h3>LOW:  { props.low } ˚F</h3>
+            <img src={ props.icon }/>
             <h3>{ props.conditions }</h3>
-            <h3>{ props.icon }</h3>
         </div>
     )
   }
