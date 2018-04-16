@@ -38,18 +38,22 @@ class App extends Component {
   }
 
   updateStateFromSearch(citySt) {
-    const city = citySt.split(', ')[0];
-    const state = citySt.split(', ')[1];
-    this.setState({
-    currCity : city, currState: state});
-    localStorage.setItem('citySt', citySt);
-      apiCall(city, state)
-      .then(data => {    
-       this.cleanData(data);
-      //  this.createLocalStorage(city, state);
-       
-      });    
-  }
+    if (citySt !== '') {
+
+      const city = citySt.split(', ')[0];
+      const state = citySt.split(', ')[1];
+      this.setState({
+        currCity : city, currState: state});
+        localStorage.setItem('citySt', citySt);
+        apiCall(city, state)
+        .then(data => {    
+          this.cleanData(data);
+          //  this.createLocalStorage(city, state); 
+        });    
+      } 
+      }
+      
+ 
 
   // createLocalStorage(city){
   //   localStorage.setItem('citySt', this.state.citySt);
@@ -64,10 +68,11 @@ class App extends Component {
   componentDidMount() {
     // const persistCity = localStorage.getItem('city');
     // console.log(localStorage.key('city'))
-   apiCall()
-   .then(data => {  
-    this.cleanData(data);   
-  });
+  //  apiCall()
+    this.updateStateFromSearch(this.state.citySt);
+  //  .then(data => {  
+  //   this.cleanData(data);   
+  // });
 }
 
   render() {
