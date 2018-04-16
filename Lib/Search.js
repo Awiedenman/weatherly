@@ -15,16 +15,20 @@ class Search extends Component {
   }
   
   searchData(event) {
-    event.preventDefault();
+    let citySt;
     if (event.keyCode === 13) {
-        const citySt = cities.data.find( citySt => {
-          
-          return citySt === this.state.query;
-        });
-        this.props.updateStateFromSearch( citySt )
+      if (cities.data.includes(event.target.value)) {
+        citySt = event.target.value;
+        this.props.updateStateFromSearch(citySt)
       }
+        // const citySt = cities.data.find( citySt => { 
+        //   return citySt === this.state.query;
+        // });
+        // this.props.updateStateFromSearch( citySt )
+      // }
     }
-
+    return citySt;
+  }
   userInputChanges(event) {
     this.setState({
       query: event.target.value

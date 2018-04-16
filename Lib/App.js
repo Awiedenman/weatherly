@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      citySt: '',
+      citySt: localStorage.citySt,
       currCity: '',
       currState: '',
       currWeatherObj: {},
@@ -38,22 +38,29 @@ class App extends Component {
   }
 
   updateStateFromSearch(citySt) {
-    if (citySt !== '') {
+    if (citySt !== ''  && citySt !== undefined) {
 
       const city = citySt.split(', ')[0];
       const state = citySt.split(', ')[1];
       this.setState({
-        currCity : city, currState: state});
+        currCity : city, 
+        currState: state, 
+        citySt : citySt
+      });
+
         localStorage.setItem('citySt', citySt);
         apiCall(city, state)
         .then(data => {    
           this.cleanData(data);
           //  this.createLocalStorage(city, state); 
         });    
-      } 
       }
-      
- 
+      //  else {
+      //   let storedCityState =localStorage.getItem('citySt');
+      //   let parsedCitySt = JSON.parse(storedCityState);
+      //   console.log(parsedCitySt)
+        
+  }
 
   // createLocalStorage(city){
   //   localStorage.setItem('citySt', this.state.citySt);
