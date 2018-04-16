@@ -6,7 +6,8 @@ import '../Styles/CurrentWeather.css';
 const CurrentWeather = (props)=>{
   // console.log(props.CurrentWeather.currDate)
   const { 
-    currLocation,
+    currCity,
+    currState,
     currTemp,
     currExpectHigh,
     currExpectLow,
@@ -18,7 +19,7 @@ const CurrentWeather = (props)=>{
 
 return (
   <div className="curr_weather">
-        <h2 className="curr_location">{currLocation}</h2>
+        <h2 className="curr_location">{currCity}, {currState}</h2>
         <p className="curr_temp">{currTemp}</p>
         <p className="curr_high">HIGH/{currExpectHigh}</p>
         <p className="curr_low">LOW/{currExpectLow}</p>

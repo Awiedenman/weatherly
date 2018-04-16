@@ -8,12 +8,14 @@ import TenDay from './TenDay';
 import Search from './Search';
 import apiCall from './api';
 import { currWeatherCleaner, sevenHrCleaner, tenDayCleaner } from './Cleaner';
+import Welcome from './Welcome';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currLocation: '',
+      currCity: '',
+      currState: '',
       currWeatherObj: {},
       hourArray: [],
       dayArray: [],
@@ -30,33 +32,50 @@ class App extends Component {
     const hourArray = sevenHrCleaner(data);
     const dayArray = tenDayCleaner(data);
 
-    this.setState({ currWeatherObj, hourArray, dayArray })
+    this.setState({ currWeatherObj, hourArray, dayArray });
   }
 
-  updateStateFromSearch(city) {
+  updateStateFromSearch(citySt) {
+    const city = citySt.split(', ')[0];
+    const state = citySt.split(', ')[1];
     this.setState({
-      currLocation : city})
+      currCity : city, currState: state});
+
+      apiCall(city, state)
+      .then(data => {    
+       this.cleanData(data);
+       this.createLocalStorage(city, state);
+       
+      });    
+  }
+
+  createLocalStorage(city,state){
+    localStorage.setItem('city', this.state.currCity);
   }
 
   toggleForecast(event) {
     this.setState({
       toggleForecast: !this.state.toggleForecast
-    })
+    });
   }
-//currLocationCity : data.current_observation.display_location.city
-  //currLocationState : data.current_observation.display_location.state
-  //cuurTemp : data.current_observation.temp_f
-  componentDidMount() {
+  
+  componentDidMount(city = '', state = '') {
    apiCall()
-   .then(data => {
-    // console.log(data)
-    this.cleanData(data)   
-})
+   .then(data => {  
+    this.cleanData(data);   
+});
 
   }
 
   render() {
-    // console.log(this.state)
+    console.log(localStorage);
+    if(!localStorage.city){
+      return(
+      <div>
+       <Welcome updateStateFromSearch={ this.updateStateFromSearch }/>
+     </div> 
+    );
+   } else {
     return (
       <div className="main-page">
         <div className="top-section">
@@ -73,6 +92,8 @@ class App extends Component {
         </div>
       </div>
     );
+   }
+    
   }
 }
 
