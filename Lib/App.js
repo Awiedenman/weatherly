@@ -14,6 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      citySt: '',
       currCity: '',
       currState: '',
       currWeatherObj: {},
@@ -25,6 +26,7 @@ class App extends Component {
     this.cleanData = this.cleanData.bind(this);
     this.toggleForecast = this.toggleForecast.bind(this);
     this.updateStateFromSearch = this.updateStateFromSearch.bind(this);
+    // this.createLocalStorage = this.createLocalStorage.bind(this);
   }
 
   cleanData(data) {
@@ -39,19 +41,19 @@ class App extends Component {
     const city = citySt.split(', ')[0];
     const state = citySt.split(', ')[1];
     this.setState({
-      currCity : city, currState: state});
-
+    currCity : city, currState: state});
+    localStorage.setItem('citySt', citySt);
       apiCall(city, state)
       .then(data => {    
        this.cleanData(data);
-       this.createLocalStorage(city, state);
+      //  this.createLocalStorage(city, state);
        
       });    
   }
 
-  createLocalStorage(city,state){
-    localStorage.setItem('city', this.state.currCity);
-  }
+  // createLocalStorage(city){
+  //   localStorage.setItem('citySt', this.state.citySt);
+  // }
 
   toggleForecast(event) {
     this.setState({
@@ -59,28 +61,31 @@ class App extends Component {
     });
   }
   
-  componentDidMount(city = '', state = '') {
+  componentDidMount() {
+    // const persistCity = localStorage.getItem('city');
+    // console.log(localStorage.key('city'))
    apiCall()
    .then(data => {  
     this.cleanData(data);   
-});
-
-  }
+  });
+}
 
   render() {
     console.log(localStorage);
-    if(!localStorage.city){
+    if (!localStorage.citySt) {
       return(
       <div>
-       <Welcome updateStateFromSearch={ this.updateStateFromSearch }/>
+       <Welcome 
+            updateStateFromSearch={ this.updateStateFromSearch }
+            createLocalStorage={ this.createLocalStorage } />
      </div> 
     );
    } else {
     return (
       <div className="main-page">
         <div className="top-section">
-          <CurrentWeather currWeatherObj={ this.state.currWeatherObj }/>
-          <Search updateStateFromSearch={ this.updateStateFromSearch }/>
+          <CurrentWeather currWeatherObj={ this.state.currWeatherObj } />
+          <Search updateStateFromSearch={ this.updateStateFromSearch } />
         </div>
         <div className="bottom-section">
           <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - 7hr / 10day</button>
