@@ -14,7 +14,7 @@
     /* border: 1px solid #000000; */
     /* overflow-x: hidden; */
     background-image: url('../images/sunnyTrees.jpg');
-    background-size: 100%;
+    /* background-size: 100%; */
     background-repeat: no-repeat;
     padding: 20px 20px;
     /* background-position: -90px; */
@@ -37,7 +37,7 @@
     border: 2px solid #000000;
     background-color:#848A83;
     position: relative;
-    top: 20px;
+    top: 72px;
     margin: 0 20px;
     color: #FEFFFA;
     border-radius: 25px

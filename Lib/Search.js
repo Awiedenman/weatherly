@@ -41,7 +41,7 @@ class Search extends Component {
   render() {
     return (
       <form role="search">
-        <input
+        <input className="searchbar"
           ref={input => this.search = input}
           value={this.state.query}
           onChange={this.userInputChanges}
@@ -52,7 +52,7 @@ class Search extends Component {
           size="40"
           required
         />
-        <p>{this.state.query}</p>
+        {/* <p>{this.state.query}</p> */}
       </form>
     );
   }
