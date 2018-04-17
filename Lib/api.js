@@ -6,7 +6,7 @@ const apiCall = ( city, state ) => {
         .then(data => {
             return data;
         })
-        .catch(error => console.log('error', error))
+        .catch(error => console.log('THat shit aint real', error))
 }
 
 
