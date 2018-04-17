@@ -26,4 +26,23 @@ describe('Card', () => {
   it('renders as it should', () => {
     expect(wrapper.find('h3').length).toEqual(3);
   });
+
+  it('should tenDay card renders as it should ', () =>{
+    let dayObj = {
+              key:21,
+              weekday:'Wednesday',
+              month:'August',
+              day: 21,
+              high:90,
+              low:78,
+              conditions:'sunny',
+              icon:null    
+    }
+
+    props = { dayObj };
+    wrapper = shallow(<Card { ...dayObj } />);
+    
+    expect(wrapper.find('h3').length).toEqual(5);
+  });
+
 });

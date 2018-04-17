@@ -50,7 +50,6 @@ class App extends Component {
       apiCall(city, state)
         .then(data => {
           this.cleanData(data);
-
         })
         .catch(error => alert('The location you entered is not valid. Please recheck your location.', error));
     }
