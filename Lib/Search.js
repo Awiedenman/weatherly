@@ -17,12 +17,12 @@ class Search extends Component {
   searchData(event) {
     let citySt;
     if (event.keyCode === 13) {
-      event.preventDefault()
+      event.preventDefault();
       // if (cities.data.includes(event.target.value)) {
       citySt = event.target.value;
-      this.props.updateStateFromSearch(citySt)
+      this.props.updateStateFromSearch(citySt);
       // }
-      this.setState({ query: '' })
+      this.setState({ query: '' });
       // const citySt = cities.data.find( citySt => { 
       //   return citySt === this.state.query;
       // });
