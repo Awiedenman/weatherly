@@ -52,8 +52,11 @@ class App extends Component {
         apiCall(city, state)
         .then(data => {    
           this.cleanData(data);
-          //  this.createLocalStorage(city, state); 
-        });    
+          //  this.createLocalStorage(city, state);  
+        })
+        .catch(error => alert('The location you entered is not valid. Please recheck your location.', error))
+        // .catch(error => console.log('error', error))  
+        // .catch(this.setState({errorPresent: true}))  
       }
       //  else {
       //   let storedCityState =localStorage.getItem('citySt');
@@ -83,7 +86,7 @@ class App extends Component {
 }
 
   render() {
-    console.log(localStorage);
+    // console.log(localStorage);
     if (!localStorage.citySt) {
       return(
       <div>
