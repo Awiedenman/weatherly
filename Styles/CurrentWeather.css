@@ -15,7 +15,7 @@ h2 {
 
 .curr_temp {
     position: absolute;
-    bottom: 128px;
+    top: 142px;
     font-size: 160px;
     left: 18px;
 }
@@ -26,30 +26,45 @@ h2 {
     left: 30px;
     font-size: 30px;
 }
-.curr_high-low {
+
+.curr_low {
     position: absolute;
-    bottom: 70px;
-    left: 45px;
+    bottom: 231px;
+    left: 41px;
+    font-size: 30px;
+}
+.curr_high {
+    position: absolute;
+    bottom: 232px;
+    left: 167px;
     font-size: 30px;
 }
 
 .curr_date {
     position: absolute;
-    top: 56px;
-    right: 19px;
-    font-size: 25px;
+    top: 29px;
+    right: 62px;
+    font-size: 30px;
 }
 
 .curr_weather-icon {
     position: absolute;
-    top: 170px;
-    right: 30px;
-    font-size: 50px;
+    top: 333px;
+    right: 45px;
+    font-size: 100px;
+    width: 114px;
 }
 
 .curr_weather-descrip {
     position: absolute;
-    bottom: 80px;
-    right: 67px;
+    bottom: 284px;
+    left: 41px;
     font-size: 30px;
+}
+
+.curr_weather-summary {
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    font-size: 25px;
 }
