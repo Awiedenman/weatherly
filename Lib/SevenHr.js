@@ -4,8 +4,6 @@ import Card from './Card';
 
 const SevenHr = (props) => {
   const { hourArray } = props;
-  // console.log(props)
-  // const { hour, currentTemp, currentCondition } = sevenHrArray;
 
   return (
     <div className= "sevenHrCardContainer">
