@@ -17,17 +17,17 @@ describe('Search Component Test Suite', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('is a React component', ()=>{
+  it('is a React component', () => {
     expect(wrapper).isElementOfType(
-      Search, componentClass)
-  })
+      Search, componentClass);
+  });
 
   it('calls searchData when the enterKey is pressed',
-  () => {
-    // <input ref={(node) => this.textInput = node} />
-    const input = this.search;
-    node.value = 'Denver';
-    ReactTestUtils.Simulate.change(input);
-    ReactTestUtils.Simulate.keyDown(input, {key: "Enter", keyCode: 13, which: 13});
-  });
+    () => {
+      // <input ref={(node) => this.textInput = node} />
+      const input = this.search;
+      node.value = 'Denver';
+      ReactTestUtils.Simulate.change(input);
+      ReactTestUtils.Simulate.keyDown(input, { key: "Enter", keyCode: 13, which: 13 });
+    });
 });

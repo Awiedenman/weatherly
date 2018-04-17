@@ -15,7 +15,7 @@ describe('Card', () => {
 
   beforeEach(() => {
     props = { hourObj };
-    wrapper = shallow(<Card {...props}/>);
+    wrapper = shallow(<Card {...props} />);
   });
 
   it('should exist and render without crashing', () => {

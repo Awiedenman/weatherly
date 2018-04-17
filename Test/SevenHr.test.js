@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import SevenHr from '../lib/SevenHr';
 
 describe('SevenHr Component Test Suite', () => {
-  
+
   let props;
   let wrapper;
 
@@ -29,17 +29,17 @@ describe('SevenHr Component Test Suite', () => {
           hour: 1300,
           hourTemp: 65,
           hourIcon: null,
-          hourCondition: 'Rain' 
-        }]   
+          hourCondition: 'Rain'
+        }]
     },
-  
-    wrapper = shallow(<SevenHr {...props} />);
+
+      wrapper = shallow(<SevenHr {...props} />);
   });
 
   it('should exist and renders without crashing', () => {
 
-    expect(wrapper).toBeDefined()
-  })
+    expect(wrapper).toBeDefined();
+  });
 
   it('renders one Card component', () => {
     expect(wrapper.find(Card)).toHaveLength(1);
