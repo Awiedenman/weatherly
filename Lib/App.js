@@ -31,8 +31,8 @@ class App extends Component {
 
   cleanData(data) {
     const currWeatherObj = currWeatherCleaner(data);
-    const hourArray = sevenHrCleaner(data);
-    const dayArray = tenDayCleaner(data);
+    const hourArray = sevenHrCleaner(data.hourly_forecast);
+    const dayArray = tenDayCleaner(data.forecast.simpleforecast.forecastday);
 
     this.setState({ currWeatherObj, hourArray, dayArray });
   }

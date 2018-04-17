@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Time</title>
+  <link rel="stylesheet" type="text/css" href="mock.css">
+</head>
+<body id="app">
+  <div className="main-page">
+    <div className="top-section">
+      <div className="curr_weather">
+        <h2 className="curr_location">Denver, CO</h2>
+        <p className="curr_temp">57 °F</p>
+        <p className="curr_high">HIGH/28 °F</p>
+        <p className="curr_low">LOW/68 °F</p>
+        <p className="curr_date">Feb 18</p>
+        <img className="curr_weather-icon" src="./images/rainy-icon.svg"/>
+        <p className="curr_weather-descrip">Rain</p>
+      </div>
+      <form role="search">
+        <input
+          ref={ input => this.search = input }
+          value={ this.state.query }
+          onChange={ this.userInputChanges }
+          onKeyDown={ this.searchData }
+          type="search"
+          placeholder="City, St OR zipcode"
+          name="q"
+          size="40"
+          required
+        />
+        <p>{this.state.query}</p>
+      </form>
+    </div>
+    <div className="bottom-section">
+      <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - 7hr / 10day</button>
+      {
+        this.state.toggleForecast ?
+        <div className= "sevenHrCardContainer">
+          {
+             hourArray.map((hourObj) => {
+               return (
+                 <Card 
+                   key = { hourObj.hour }
+                   hour= { hourObj.hour }
+                   hourTemp={ hourObj.hourTemp }
+                   hourIcon={ hourObj.hourIcon }
+                   hourCondition={ hourObj.hourCondition }
+                 />
+               );
+             })
+           }
+       </div> :
+       <div className="tenDayContainer">
+        {
+          dayArray.map((dayObj)=>{
+            return (
+              <Card
+                key = { dayObj.day}
+                month = {dayObj.month}
+                day = {dayObj.day}
+                high = { dayObj.high }
+                low = { dayObj.low }
+                conditions = { dayObj.conditions }
+                icon = { dayObj.icon }
+                />
+            )
+          })
+        }
+  
+      </div>
+      }     
+    </div>
+  </div>
+  <script src="main.bundle.js"></script>
+</body>
+</html>
