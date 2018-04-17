@@ -31,14 +31,16 @@ class App extends Component {
 
   cleanData(data) {
     const currWeatherObj = currWeatherCleaner(data);
-    const hourArray = sevenHrCleaner(data);
-    const dayArray = tenDayCleaner(data);
+    const hourArray = sevenHrCleaner(data.hourly_forecast);
+    const dayArray = tenDayCleaner(data.forecast.simpleforecast.forecastday);
+    console.log(dayArray);
+    
 
     this.setState({ currWeatherObj, hourArray, dayArray });
   }
 
   updateStateFromSearch(citySt) {
-    if (citySt !== ''  && citySt !== undefined) {
+    if (citySt !== '' && citySt !== undefined) {
 
       const city = citySt.split(', ')[0];
       const state = citySt.split(', ')[1];
@@ -85,7 +87,7 @@ class App extends Component {
   render() {
     console.log(localStorage);
     if (!localStorage.citySt) {
-      return(
+      return (
       <div>
        <Welcome 
             updateStateFromSearch={ this.updateStateFromSearch }
@@ -100,7 +102,7 @@ class App extends Component {
           <Search updateStateFromSearch={ this.updateStateFromSearch } />
         </div>
         <div className="bottom-section">
-          <button onClick={this.toggleForecast} type="button" className="toggle">CLICK - 7hr / 10day</button>
+          <button onClick={this.toggleForecast} type="button" className="toggle"> 7hr / 10day</button>
           {
             this.state.toggleForecast ?
             <SevenHr hourArray={this.state.hourArray}/> :

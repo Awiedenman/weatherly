@@ -16,6 +16,12 @@ import { shallow, mount } from 'enzyme';
 describe('App tests', () => {
   let renderedApp;
 
+  window.localStorage={
+    getItem: Jest.fn(), 
+    setItem: Jest.fn(),
+    removeItem: Jest.fn()
+  }
+
   beforeEach(() => {
     renderedApp = shallow(<App />);
   });
