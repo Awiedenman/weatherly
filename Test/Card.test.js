@@ -15,11 +15,15 @@ describe('Card', () => {
 
   beforeEach(() => {
     props = { hourObj };
-    wrapper = shallow(<Card {...props} />);
+    wrapper = shallow(<Card {...hourObj} />);
   });
 
   it('should exist and render without crashing', () => {
 
     expect(wrapper).toBeDefined();
+  });
+
+  it('renders as it should', () => {
+    expect(wrapper.find('h3').length).toEqual(3);
   });
 });
