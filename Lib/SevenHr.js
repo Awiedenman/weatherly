@@ -6,20 +6,20 @@ const SevenHr = (props) => {
   const { hourArray } = props;
 
   return (
-    <div className= "sevenHrCardContainer">
-       {
-          hourArray.map((hourObj) => {
-            return (
-              <Card 
-                key = { hourObj.hour }
-                hour= { hourObj.hour }
-                hourTemp={ hourObj.hourTemp }
-                hourIcon={ hourObj.hourIcon }
-                hourCondition={ hourObj.hourCondition }
-              />
-            );
-          })
-        }
+    <div className="sevenHrCardContainer">
+      {
+        hourArray.map((hourObj) => {
+          return (
+            <Card
+              key={hourObj.hour}
+              hour={hourObj.hour}
+              hourTemp={hourObj.hourTemp}
+              hourIcon={hourObj.hourIcon}
+              hourCondition={hourObj.hourCondition}
+            />
+          );
+        })
+      }
     </div>
   );
 };
