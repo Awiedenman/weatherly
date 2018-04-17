@@ -11,6 +11,7 @@ const TenDay = (props) => {
           return (
             <Card
               key = { dayObj.day}
+              weekday = {dayObj.weekday }
               month = {dayObj.month}
               day = {dayObj.day}
               high = { dayObj.high }

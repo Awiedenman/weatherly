@@ -13,7 +13,8 @@ const CurrentWeather = (props)=>{
     currExpectLow,
     currDate,
     currWeatherDescrip,
-    currWeatherIcon
+    currWeatherIcon,
+    currWeatherSummary
   } = props.currWeatherObj;
  
 
@@ -26,6 +27,7 @@ return (
         <p className="curr_date">{currDate}</p>
         <img className="curr_weather-icon" src={currWeatherIcon}/>
         <p className="curr_weather-descrip">{currWeatherDescrip}</p>
+        <p className="curr_weather-summary">{ currWeatherSummary }</p>
   </div>
     );  
 };
