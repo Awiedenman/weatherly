@@ -54,8 +54,4 @@ describe('TenDay Component Test Suite', () => {
     expect(wrapper.find('.tenDayContainer').length).toEqual(1)
   })
 
-  it('renders one Card component', () => {
-    expect(wrapper.find(Card)).toHaveLength(1);
-  });
-
 });

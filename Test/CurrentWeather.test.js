@@ -5,7 +5,7 @@ import CurrentWeather from '../lib/CurrentWeather';
 describe('CurrentWeather', () => {
   let props;
   let wrapper;
-  let currentWeatherObj = { 
+  let currWeatherObj = { 
     currCity: 'Peoria',
     currState: 'IL',
     currTemp: 75,
@@ -18,9 +18,7 @@ describe('CurrentWeather', () => {
   }
   
   beforeEach(() => {
-    props = {currentWeatherObj: currentWeatherObj};
-
-    wrapper = shallow(<CurrentWeather { ...props } />);
+    wrapper = shallow(< CurrentWeather currWeatherObj = { currWeatherObj } />);
   });
 
   it('should exist and render without crashing', () => {
@@ -29,6 +27,9 @@ describe('CurrentWeather', () => {
   });
 
   it('renders as it should', () => {
-    expect(wrapper.find('p').length).toEqual(1);
+    expect(wrapper.find('p').length).toEqual(6);
+    expect(wrapper.find('h2').length).toEqual(1);
+    expect(wrapper.find('div').length).toEqual(1);
+    expect(wrapper.find('img').length).toEqual(1);
   });
 });

@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   cleanData(data) {
+    console.log(data)
     const currWeatherObj = currWeatherCleaner(data);
     const hourArray = sevenHrCleaner(data.hourly_forecast);
     const dayArray = tenDayCleaner(data.forecast.simpleforecast.forecastday);

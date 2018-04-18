@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import SevenHr from '../lib/SevenHr';
+import Card from '../lib/Card'
 
 describe('SevenHr Component Test Suite', () => {
 
@@ -8,8 +9,7 @@ describe('SevenHr Component Test Suite', () => {
   let wrapper;
 
   beforeEach(() => {
-    props = {
-      hourArray: [
+      const hourArray = [
         {
           key: 12,
           hour: 1200,
@@ -31,9 +31,8 @@ describe('SevenHr Component Test Suite', () => {
           hourIcon: null,
           hourCondition: 'Rain'
         }]
-    },
 
-      wrapper = shallow(<SevenHr {...props} />);
+      wrapper = shallow(<SevenHr hourArray={hourArray} />);
   });
 
   it('should exist and renders without crashing', () => {
@@ -42,7 +41,7 @@ describe('SevenHr Component Test Suite', () => {
   });
 
   it('renders one Card component', () => {
-    expect(wrapper.find(Card)).toHaveLength(1);
+    expect(wrapper.find(Card)).toHaveLength(3);
   });
 
 });
