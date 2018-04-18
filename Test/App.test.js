@@ -22,7 +22,7 @@ describe('App', () => {
   it(
     'should have a default state and specific dayArray default of empty array',
     () => {
-      expect(wrapper.state()).toEqual({
+      let expectedState = {
         citySt: localStorage.citySt,
         currCity: '',
         currState: '',
@@ -30,12 +30,18 @@ describe('App', () => {
         hourArray: [],
         dayArray: [],
         toggleForecast: true
-      });
-      expect(wrapper.state().dayArray).toEqual(expect.arrayContaining([]));
+      }
+
+      expect(wrapper.state()).toEqual(expectedState);
     });
 
-  // it('should call a method on mount', () => {
 
-  // })
+  it('toggleForecast() updates state', () => {
+
+    wrapper.setState({ toggleForecast : true });
+    wrapper.instance().toggleForecast();
+
+    expect(wrapper.state('toggleForecast')).toEqual(false)
+  })
 
 });

@@ -23,7 +23,7 @@ describe('Card', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('renders as it should', () => {
+  it('should render 7hr card properly', () => {
     expect(wrapper.find('h3').length).toEqual(3);
   });
 

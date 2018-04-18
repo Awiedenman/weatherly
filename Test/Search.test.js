@@ -17,17 +17,30 @@ describe('Search Component Test Suite', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('is a React component', () => {
-    expect(wrapper).isElementOfType(
-      Search, componentClass);
-  });
-
   it('calls searchData when the enterKey is pressed',
     () => {
-      // <input ref={(node) => this.textInput = node} />
-      const input = this.search;
-      node.value = 'Denver';
-      ReactTestUtils.Simulate.change(input);
-      ReactTestUtils.Simulate.keyDown(input, { key: "Enter", keyCode: 13, which: 13 });
+     let mockEvent = {
+       preventDefault : jest.fn(),
+       keyCode : 13,
+       target : {
+         value : 'Omaha, NE'
+       }
+     }
+     wrapper.setState({ query : 'Omaha, NE' })
+     wrapper.instance().searchData(mockEvent)
+
+     expect(wrapper.state('query')).toEqual('');
     });
+
+    it('useInputChanges() updates state', () => {
+      let mockEvent = {
+        target : {
+        value : 'Omaha, NE'
+        }
+      }
+      wrapper.setState({});
+      wrapper.instance().userInputChanges(mockEvent);
+
+      expect(wrapper.state('query')).toEqual('Omaha, NE')
+    })
 });

@@ -19,8 +19,12 @@ describe('Welcome Component Test Suite', () => {
     expect(wrapper).toBeDefined();
   });
 
-  it('renders one Search component', () => {
-    expect(wrapper.find(Search)).toHaveLength(1);
+  it('renders one h1 to Search component', () => {
+    expect(wrapper.find('h1')).toHaveLength(1);
+  });
+
+  it('renders one Welcome page div to Search component', () => {
+    expect(wrapper.find('div')).toHaveLength(1);
   });
 
 });
